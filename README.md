@@ -1,2 +1,1 @@
-# docker-nodejs-bower-grunt
-Node.js w/ Bower &amp; Grunt Dockerfile
+# Node.js w/ Bower &amp; Grunt Dockerfile
