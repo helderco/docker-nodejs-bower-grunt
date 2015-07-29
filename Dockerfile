@@ -29,4 +29,4 @@ RUN mkdir -p /home/node/.config/configstore && \
     chown -R node:node /home/node
 
 WORKDIR /data
-CMD ["bash"]
+CMD ["node", "-i"]
