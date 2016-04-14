@@ -1,9 +1,6 @@
 FROM node:4
 MAINTAINER Helder Correia <me@heldercorreia.com>
 
-# create unprivileged user
-RUN groupadd node && useradd -m -g node node
-
 # grab gosu for easy step-down from root
 ENV GOSU_VERSION 1.7
 RUN set -x \
@@ -16,6 +13,11 @@ RUN set -x \
   && chmod +x /usr/local/bin/gosu \
   && gosu nobody true
 
+# create unprivileged user
+RUN groupadd node && useradd -m -g node node
+RUN chown -R node:node /usr/local
+ENV PATH node_modules/.bin:$PATH
+
 # install bower globally
 RUN gosu node npm install -g bower
 
@@ -23,9 +25,6 @@ RUN gosu node npm install -g bower
 RUN mkdir -p /home/node/.config/configstore && \
     echo "{\"optOut\": true}" > /home/node/.config/configstore/insight-bower.json && \
     chown -R node:node /home/node
-
-# add npm binaries to $PATH
-ENV PATH node_modules/.bin:$PATH
 
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
