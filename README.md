@@ -1,4 +1,4 @@
-# Node.js w/ Bower &amp; Grunt Dockerfile
+# Node.js w/ Bower
 
 ## Testing javascript
 
