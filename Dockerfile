@@ -14,7 +14,7 @@ RUN set -x \
   && gosu nobody true
 
 # create unprivileged user
-RUN groupadd node && useradd -m -g node node
+RUN groupadd -r node && useradd -m -r -g node node
 RUN chown -R node:node /usr/local
 ENV PATH node_modules/.bin:$PATH
 
