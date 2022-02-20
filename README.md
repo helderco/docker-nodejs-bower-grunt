@@ -1,4 +1,4 @@
-# Node.js w/ Bower
+# Node.js w/ Bower (DEPRECATED)
 
 ## Testing javascript
 
